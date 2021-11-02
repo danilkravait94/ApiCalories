@@ -21,11 +21,11 @@ namespace MyOwnApi.Controllers
             if (name.Split('&').ToList().Count == 2)
             {
                 List<string> doublemame = name.Split('&').ToList();
-                search = JObject.Parse(await GetFood($"https://api.edamam.com/api/food-database/parser?nutrition-type=logging&ingr={doublemame[0]}%20{doublemame[1]}&app_id=a3574067&app_key=0875a182036a06317538d3c0fc85f29a"));
+                search = JObject.Parse(await GetFood($"https://api.edamam.com/api/food-database/parser?nutrition-type=logging&ingr={doublemame[0]}%20{doublemame[1]}&app_id=a3574067&app_key={your_api_key}"));
             }
             else
             {
-                search = JObject.Parse(await GetFood($"https://api.edamam.com/api/food-database/parser?nutrition-type=logging&ingr={name}&app_id=a3574067&app_key=0875a182036a06317538d3c0fc85f29a"));
+                search = JObject.Parse(await GetFood($"https://api.edamam.com/api/food-database/parser?nutrition-type=logging&ingr={name}&app_id=a3574067&app_key={your_api_key}"));
             }
             Food food = JsonConvert.DeserializeObject<Food>(search["hints"][0]["food"].ToString());
             food.Round();
