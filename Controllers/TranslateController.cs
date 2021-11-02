@@ -27,7 +27,7 @@ namespace MyOwnApi.Controllers
             var client = new RestClient($"https://microsoft-azure-translation-v1.p.rapidapi.com/translate?from=ru&to=en&text={text}");
             var request = new RestRequest(Method.GET);
             request.AddHeader("x-rapidapi-host", "microsoft-azure-translation-v1.p.rapidapi.com");
-            request.AddHeader("x-rapidapi-key", "f3c3fd7010msh12f3c95b0b41b52p12dbd8jsnf07fab2c9479");
+            request.AddHeader("x-rapidapi-key", "Your_Api_Key");
             request.AddHeader("accept", "application/json");
             IRestResponse response = client.Execute(request);
             return response.Content;
